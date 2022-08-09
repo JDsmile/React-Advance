@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Jquery</title>
+  </head>
+  <body>
+    <button class="continue">Continue</button>
+    <button class="continue">Continue</button>
+
+    <span id="banner-message">HiddenBox</span>
+    <div id="button-container">
+      <button>Show</button>
+    </div>
+    <script>
+
+
+      //prototype jquery
+      class $$ {
+        constructor(selector){
+          this.selector = selector
+        }
+
+        html(innerHTML){
+          const elements = document.querySelectorAll(this.selector)
+          elements.forEach((element) => {
+            element.innerHTML = innerHTML;
+          });
+        }
+        hide(){
+          const elements = document.querySelectorAll(this.selector)
+              elements.forEach((element) => {
+              element.style.display = 'none';
+            });
+         
+        }
+        on(eventType,callbackFn){
+          const elements = document.querySelectorAll(this.selector)
+          elements.forEach((element) =>{
+            element.addEventListener(
+              eventType,callbackFn
+            )
+          })
+          
+        }
+        show() {
+          const elements = document.querySelectorAll(this.selector)
+          elements.forEach((element)=>{
+            element.style.display = ''
+          })
+          console.log("show")
+        }
+
+        ajax({url,success}){
+          fetch(url)
+          .then(res => res.json())
+          .then(result => success(result))
+        }
+      }
+      
+
+      // //hide test
+      // var hiddenBox = new $$('#banner-message');
+      // hiddenBox.hide();
+
+      // //show test
+      //   var show = new $$('#button-container button').on(
+      //     'click',
+      //     function (event) {
+      //       hiddenBox.show();
+      //     }
+      //   );
+
+      //test ajax
+
+      let btn = new $$('button.continue')
+      btn.ajax({
+        url: 'https://jsonplaceholder.typicode.com/todos/1',
+        success: function (result) {
+          console.log('$.ajax:', result);
+        },
+      });
+
+    </script>
+  </body>
+</html>
