@@ -1,0 +1,22 @@
+{
+  "name": "react-bolierplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo hello Patrick 1",
+    "start": "echo hello Patrick start",
+    "build": "babel src -d lib"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Patrick",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6"
+  }
+}
