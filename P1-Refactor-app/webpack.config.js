@@ -29,13 +29,13 @@ module.exports = {
     },
 
     {
-        test: /\.(jpg|png|gif|svg)$/,
-        loader: 'url-loader',
-        options: {
-            name: '[hash:10].[ext]',
-            outputPath: 'images/'
-        }
-    }
+      test: /\.(jpg|png|gif|svg)$/,
+      loader: 'url-loader',
+      options: {
+          name: '[hash:10].[ext]',
+          outputPath: 'images/'
+      }
+  }
 
     ],
   },

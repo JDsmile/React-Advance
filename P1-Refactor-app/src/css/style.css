@@ -41,7 +41,7 @@ html {
 /* Main banner */
 .main {
   background: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)),
-    url(./images/apple-1838564_1920-main.jpg); /* Browser prefixes*/
+    url(../images/apple-1838564_1920-main.jpg); /* Browser prefixes*/
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -89,14 +89,6 @@ html {
 /* About Me */
 .about {
   padding: 3% 0;
-  background: linear-gradient(
-      rgba(225, 225, 225, 0.94),
-      rgba(225, 225, 225, 0.94)
-    ),
-    url(./images/aboutbackground.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
 }
 
 .about-header h1 {
@@ -161,10 +153,6 @@ html {
 }
 
 .summary {
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url(./images/architecture-2178604_1920-main1.jpg);
-  background-attachment: fixed;
-  background-attachment: center center;
   color: white;
   padding: 60px 30px;
 }
@@ -203,22 +191,13 @@ html {
   font-style: italic;
 }
 /*.luvtalk-project, .personal-website-project, .strike-zone-project, .resume {border: 3px solid white;}*/
-.luvtalk-project {
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url(./images/luvtalklogo.png);
-  background-position: center center;
-}
-
-.personal-website-project {
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url(./images/logo.svg);
-  background-position: center center;
-}
-
+.luvtalk-project,
+.personal-website-project,
 .strike-zone-project {
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url(./images/mlbproject.png);
-  background-position: center center;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .resume {
@@ -328,9 +307,4 @@ textarea {
 .resume-footer a,
 .contact-footer a {
   color: white;
-}
-.home-footer a:hover,
-.portfolio-footer a:hover,
-.resume-footer a:hover,
-.contact-footer a:hover {
 }
