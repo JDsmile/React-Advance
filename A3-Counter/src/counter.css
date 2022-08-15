@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+.root{
+    display: flex;
+}
+
+button{
+    padding: 0.5em;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+p{
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+}

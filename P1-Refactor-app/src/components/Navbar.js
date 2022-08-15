@@ -1,8 +1,9 @@
 import React from "react";
 import logo from "../images/logo.svg"
-import { Link } from "react-router-dom";
+import { NavLink,useNavigate} from "react-router-dom";
 
 export default function Navbar(){
+	const navigate = useNavigate()
     return(
         <>
         <div className = "navigation">
@@ -13,13 +14,12 @@ export default function Navbar(){
 							<a href = "index.html"><img src ={logo} /></a>
 						</div>
 					</div>
-
 					<div className = "col-xs-11 col-sm-11 col-md-11 col-lg-11 text-right">
 						<div className = "primary-nav">
 							<ul>
-								<li><Link to = "/">Home</Link></li>
-								<li><Link to = "/portfolio">portfolio</Link></li>
-								<li><Link to = "/contact">contact</Link></li>
+								<li><NavLink to = "/">Home</NavLink></li>
+								<li><NavLink to = "portfolio">portfolio</NavLink></li>
+								<li><NavLink to = "contact">contact</NavLink></li>
 							</ul>
 						</div>
 					</div>
