@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import CounterFn from './CounterFn';
-import CounterClass from "./CounterClass"
-import reportWebVitals from './reportWebVitals';
-import "./counter.css"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import CounterFn from "./CounterFn";
+import CounterClass from "./CounterClass";
+import reportWebVitals from "./reportWebVitals";
+import "./counter.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CounterFn/>
+    <CounterFn />
     <CounterClass />
   </React.StrictMode>
 );
