@@ -12,6 +12,7 @@ export default class CounterFn extends React.Component {
       };
     });
   };
+
   decreaseCount = () => {
     this.setState((prev) => {
       return {
