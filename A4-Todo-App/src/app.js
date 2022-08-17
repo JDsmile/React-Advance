@@ -1,7 +1,9 @@
 import React from "react";
+import TodosFn from "./todo/todosFn";
+import "../src/style.css";
 
 function app() {
-  return <h1>hi</h1>;
+  return <TodosFn />;
 }
 
 export default app;
