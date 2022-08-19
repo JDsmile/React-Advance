@@ -1,0 +1,24 @@
+.App{
+
+    width: 80%;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+input{
+    margin-bottom: 2em;
+
+}
+label{
+    font-size: 24px;
+}
+
+button{
+    font-size: 30px;
+    
+}
