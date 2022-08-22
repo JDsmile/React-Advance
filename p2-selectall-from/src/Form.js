@@ -1,92 +1,116 @@
-import React, { useEffect } from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React, { useReducer } from "react";
+import { act } from "react-dom/test-utils";
 import "./style.css";
 
 export default function Form() {
-  const formdata = [
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "selected":
+        return {
+          ...state,
+
+          todoList: state.todoList.map((item) => {
+            if (item.id === action.id) {
+              return { ...item, selected: !item.selected };
+            } else {
+              return item;
+            }
+          }),
+        };
+
+      case "clear":
+        return {
+          selectAll: false,
+          display: "",
+          todoList: state.todoList.map((item) => {
+            return { ...item, selected: false };
+          }),
+        };
+      case "selectAll":
+        return {
+          ...state,
+          selectAll: !state.selectAll,
+        };
+
+      case "showSeleted":
+        return {
+          ...state,
+          todoList: state.todoList.map((item) => {
+            if (state.selectAll === false) {
+              return { ...item, selected: false };
+            } else {
+              return { ...item, selected: true };
+            }
+          }),
+        };
+
+      case "displayTodos":
+        return {
+          ...state,
+          display: state.todoList.map((item) => {
+            if (item.selected === true) {
+              return item.name + " ";
+            }
+          }),
+        };
+    }
+  };
+
+  const todoList = [
     {
-      name: "select All",
-      selected: false,
-    },
-    {
+      id: 1,
       name: "Kosher",
       selected: false,
     },
     {
+      id: 2,
       name: "No Celery (inc celeriac)",
       selected: false,
     },
     {
+      id: 3,
       name: "No Egg",
       selected: false,
     },
   ];
 
-  const [formselections, setFormSelections] = React.useState(formdata);
-  const [selectAllBtn, setSelectAllBtn] = React.useState();
-  const [displayInfo, setDisplayInfo] = React.useState([]);
+  const [state, dispatch] = useReducer(reducer, {
+    todoList,
+    selectAll: false,
+    display: " ",
+  });
 
-  function clear() {
-    const updatedData = formselections.map((item, index) => {
-      return { ...item, selected: false };
-    });
-    setFormSelections(updatedData);
-  }
-  //   //   check if all 3 items are check
-  let checkstatus = formselections.slice(1);
-  //   let result = checkstatus.every((item) => {
-  //     return item.selected;
-  //   });
-
-  //   if (result) {
-  //     setFormSelections(...formselections, (formselections[0].selected = true));
-  //     // setFormSelections(
-  //     //   formselections.map((item, index) =>
-  //     //     index === 0 ? { ...item, selected: true } : item
-  //     //   )
-  //     // );
-  //   }
-  //   console.log(formselections);
-
-  useEffect(() => {
-    let info = "";
-    formselections.forEach((item, index) => {
-      if (item.selected === true) {
-        info += item.name;
-      }
-    });
-    setDisplayInfo(info);
-  }, [formselections]);
-
-  function handleClick(position) {
-    const updatedData = formselections.map((item, index) => {
-      if (position === 0) {
-        if (item.selected === true) {
-          return { ...item, selected: false };
-        } else {
-          return { ...item, selected: true };
-        }
-      }
-
-      if (index === position) {
-        return { ...item, selected: !item.selected };
-      } else {
-        return item;
-      }
-    });
-    setFormSelections(updatedData);
-  }
+  console.log(state);
 
   return (
     <>
       <div>
-        <p>Selected Value :{displayInfo}</p>
+        <p>Selected Value :{state.display}</p>
+        <input
+          type="checkbox"
+          checked={state.selectAll}
+          onChange={() => {
+            dispatch({ type: "selectAll" });
+            dispatch({ type: "showSeleted" });
+            dispatch({ type: "displayTodos" });
+          }}
+        />{" "}
+        Select All
         <div className="flex">
-          {formselections.map((element, index) => {
+          {state.todoList.map((element) => {
             return (
-              <label key={index}>
+              <label key={element.id}>
                 <input
                   type="checkbox"
-                  onChange={() => handleClick(index)}
+                  onChange={() => {
+                    dispatch({
+                      type: "selected",
+                      id: element.id,
+                    });
+
+                    dispatch({ type: "displayTodos" });
+                  }}
                   checked={element.selected}
                 />
                 {element.name}
@@ -94,8 +118,13 @@ export default function Form() {
             );
           })}
         </div>
-
-        <button onClick={clear}>Clear All</button>
+        <button
+          onClick={() => {
+            dispatch({ type: "clear" });
+          }}
+        >
+          Clear All
+        </button>
       </div>
     </>
   );
