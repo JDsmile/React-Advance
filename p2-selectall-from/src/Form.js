@@ -9,7 +9,6 @@ export default function Form() {
       case "selected":
         return {
           ...state,
-
           todoList: state.todoList.map((item) => {
             if (item.id === action.id) {
               return { ...item, selected: !item.selected };
@@ -33,15 +32,13 @@ export default function Form() {
           selectAll: !state.selectAll,
         };
 
-      case "showSeleted":
+      case "showAll":
         return {
           ...state,
           todoList: state.todoList.map((item) => {
-            if (state.selectAll === false) {
-              return { ...item, selected: false };
-            } else {
-              return { ...item, selected: true };
-            }
+            return state.selectAll === false
+              ? { ...item, selected: false }
+              : { ...item, selected: true };
           }),
         };
 
@@ -51,9 +48,13 @@ export default function Form() {
           display: state.todoList.map((item) => {
             if (item.selected === true) {
               return item.name + " ";
+            } else {
+              return "";
             }
           }),
         };
+      default:
+        return state;
     }
   };
 
@@ -78,7 +79,7 @@ export default function Form() {
   const [state, dispatch] = useReducer(reducer, {
     todoList,
     selectAll: false,
-    display: " ",
+    display: "",
   });
 
   console.log(state);
@@ -92,10 +93,10 @@ export default function Form() {
           checked={state.selectAll}
           onChange={() => {
             dispatch({ type: "selectAll" });
-            dispatch({ type: "showSeleted" });
+            dispatch({ type: "showAll" });
             dispatch({ type: "displayTodos" });
           }}
-        />{" "}
+        />
         Select All
         <div className="flex">
           {state.todoList.map((element) => {
