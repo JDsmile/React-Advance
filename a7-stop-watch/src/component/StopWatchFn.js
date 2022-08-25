@@ -15,32 +15,38 @@ export default function StopWatch() {
   return (
     <>
       <div className="timer__container">
-        <span>{("0" + (Math.floor(timer / 60000) % 60)).slice(-2)}:</span>
-        <span>{("0" + (Math.floor(timer / 1000) % 60)).slice(-2)}:</span>
-        <span>{("0" + ((timer / 10) % 1000)).slice(-2)}</span>
+        <h2>Functional Component</h2>
         <br />
-        <button
-          onClick={() => {
-            setStartTimer(true);
-          }}
-        >
-          START
-        </button>
-        <button
-          onClick={() => {
-            setStartTimer(false);
-          }}
-        >
-          PAUSE
-        </button>
-        <button
-          onClick={() => {
-            setStartTimer(false);
-            setTimer(0);
-          }}
-        >
-          RESET
-        </button>
+        <div>
+          <span>{("0" + (Math.floor(timer / 60000) % 60)).slice(-2)}:</span>
+          <span>{("0" + (Math.floor(timer / 1000) % 60)).slice(-2)}:</span>
+          <span>{("0" + ((timer / 10) % 1000)).slice(-2)}</span>
+        </div>
+        <br />
+        <div>
+          <button
+            onClick={() => {
+              setStartTimer(true);
+            }}
+          >
+            START
+          </button>
+          <button
+            onClick={() => {
+              setStartTimer(false);
+            }}
+          >
+            PAUSE
+          </button>
+          <button
+            onClick={() => {
+              setStartTimer(false);
+              setTimer(0);
+            }}
+          >
+            RESET
+          </button>
+        </div>
       </div>
     </>
   );

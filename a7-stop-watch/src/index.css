@@ -3,12 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-.timer__container{
+.timer__container,
+.count__container,
+.stock_container{
   padding: 20px 0;
   font-size: 24px;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.timer__container button{
+.timer__container button,
+.count__container button,
+.stock_container button{
   margin-right: 10px;
   padding: 5px 10px;
   margin-top: 10px;
