@@ -3,10 +3,6 @@ import React from "react";
 export default function StopWatch() {
   const [timer, setTimer] = React.useState(0);
   const [startTimer, setStartTimer] = React.useState(false);
-
-  console.log("timer", timer);
-  console.log(startTimer);
-
   React.useEffect(() => {
     let interval = null;
     if (startTimer) {
