@@ -5,7 +5,10 @@ import StopWatchCl from "./component/StopWatchCl";
 import Counter from "./component/Counter";
 import Stock from "./component/Stock";
 import CounterCl from "./component/CounterCl";
+import { useSelector } from "react-redux";
+
 function App() {
+  const counter = useSelector((state) => state.count);
   const pages = [
     {
       pageName: "StopWatchFunction",
@@ -42,6 +45,7 @@ function App() {
   return (
     <div className="App">
       <nav>
+        <h2>Value:{counter}</h2>
         {pages.map((page, index) => (
           <a
             href={`./${page.pageName}`}
