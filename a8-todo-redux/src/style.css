@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.root{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em;
+}
+
+.form{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.form-input,
+.form-submit{
+    padding: 0.75em 1.5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.form-input{
+    border: 1px solid gray;
+    font-size: 1.5rem;
+}
+
+.form-submit{
+    color: white;
+    background-color: #008cba;
+    border: none;
+    cursor: pointer;
+}
+svg{
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.todos-container{
+    font-size: 1.5rem;
+    min-height: 500px;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-radius: 15px;
+    background-color:  #f0f0f0;
+    border: 5px solid #e6e2d3;
+    width: 500px;
+}
+.todo-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding: .5em 1em;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #e6e2d3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo-content{
+    overflow-wrap: break-word;
+    max-width: 250px;
+}
+
+.small{
+    width: 50px;
+}
+.delete{
+    background-color: red;
+    
+}
+.edit{
+    background-color: #008cba;
+}
+.completed{
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.todo-edit-input{
+    padding: 0.5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+}
