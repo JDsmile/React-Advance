@@ -1,14 +1,11 @@
-import React from 'react';
-import TodosFn from './todo/TodosFn';
-
-
-
+import TodosFn from './components/TodosFn'
 
 function App() {
   return (
-<>
-<TodosFn /></>
-  );
+    <>
+      <TodosFn />
+    </>
+  )
 }
 
-export default App;
+export default App
