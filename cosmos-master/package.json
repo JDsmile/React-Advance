@@ -1,0 +1,44 @@
+{
+  "name": "cosmos-busted",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "author": "cdaringe <cdaringe@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "fs-extra": "^7.0.1",
+    "meow": "^5.0.0",
+    "perish": "^1.0.2",
+    "toiletdb": "^1.4.1"
+  },
+  "scripts": {
+    "decrypt-guide": "gpg --output administrator.md --decrypt administrator.md.enc",
+    "encrypt-guide": "gpg --output administrator.md.enc --symmetric --cipher-algo AES256 administrator.md",
+    "format": "prettier-standard '{src,test,scripts}/**/*.{js,jsx,ts,tsx}'",
+    "lint": "standard '{src,test,scripts}/**/*.{js,jsx,ts,tsx}'"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "{src,test,scripts}/**/*.{js,jsx,ts,tsx}": [
+        "npm run format",
+        "npm run lint",
+        "git add"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.0",
+    "@commitlint/config-conventional": "^7.5.0",
+    "commitlint": "^7.5.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
+    "prettier-standard": "^9.1.1",
+    "standard": "^12.0.1"
+  }
+}
