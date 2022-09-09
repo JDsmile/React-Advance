@@ -25,9 +25,11 @@ export const ProductPurchase = ({ price }) => (
         />
       </div>
     </div>
-    <div className="elc-product-purchase-price">{price}</div>
-    <button name="AddToBag" className="elc-product-purchase-btn btn--dark">
-      Add To Bag
-    </button>
+    <div className="elc-product-purchase-info">
+      <p className="elc-product-purchase-price">{price}</p>
+      <button name="AddToBag" className="elc-product-purchase-btn btn--dark">
+        Add To Bag
+      </button>
+    </div>
   </section>
 );

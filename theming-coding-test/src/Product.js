@@ -20,21 +20,22 @@ export const Product = ({
   },
 }) => (
   <main className="elc-product">
-    <h4 className="elc-product__breadcrumb">{category}</h4>
-    <div>
+    <div className="elc-product-hero">
+      <h4 className="elc-product__breadcrumb">{category}</h4>
       <ProductImage image={imgURL} />
-    </div>
-    <div>
-      <ProductDesc
-        category={category}
-        name={name}
-        description={description}
-        rating={ratingURL}
-        features={features}
-        shade={shade}
-      />
-      <hr className="divider" />
-      <ProductPurchase price={price} />
+
+      <div>
+        <ProductDesc
+          category={category}
+          name={name}
+          description={description}
+          rating={ratingURL}
+          features={features}
+          shade={shade}
+        />
+        <hr className="divider" />
+        <ProductPurchase price={price} />
+      </div>
     </div>
     <hr className="divider divider__wide" />
     <div>

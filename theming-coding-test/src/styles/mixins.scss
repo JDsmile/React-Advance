@@ -1,0 +1,7 @@
+@import 'variables.scss';
+
+@mixin desktop-up {
+  @media (min-width: $landscape-up) {
+    @content;
+  }
+}

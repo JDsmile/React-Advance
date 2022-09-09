@@ -6,7 +6,7 @@ export const ProductDesc = ({ name, description, rating, features, shade }) => (
   <section className="elc-product-desc">
     <h2 className="elc-product-desc__title">{name}</h2>
     <p className="elc-product-desc__subtitle">{description}</p>
-    <figure className="elc-product-images">
+    <figure className="elc-product-rating">
       <img src={rating} alt="Product Rating" />
       <img src={caret} alt="View All Ratings" />
     </figure>

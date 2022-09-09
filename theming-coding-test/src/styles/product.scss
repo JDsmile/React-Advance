@@ -1,9 +1,20 @@
 @import 'variables.scss';
+@import 'mixins.scss';
 
 /** Add styles here **/
 
 .elc-product {
   margin: 0 5%;
+
+  &-hero {
+    @include desktop-up {
+      display: grid;
+      gap: 0 64px;
+      grid-template-areas:
+        'img  breadcrumb'
+        'img productDesc';
+    }
+  }
 
   &__breadcrumb {
     font-size: 15px;
@@ -12,16 +23,37 @@
     letter-spacing: 0.03em;
     margin-top: 21px;
     color: $color-grey;
+
+    @include desktop-up {
+      grid-area: breadcrumb;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      margin-top: 21px;
+      color: $color-grey;
+      padding-top: 20px;
+    }
   }
 }
 
 .elc-product-desc {
+  @include desktop-up {
+    grid-area: productDesc;
+  }
   &__title {
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
     color: $color-black;
     letter-spacing: -0.01em;
+    @include desktop-up {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+      letter-spacing: 0.02em;
+      margin-top: 11px;
+    }
   }
   &__subtitle {
     font-weight: 400;
@@ -30,16 +62,31 @@
     color: $color-black;
     margin-top: 7px;
     letter-spacing: 0.02em;
+
+    @include desktop-up {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      margin-right: 97px;
+      margin-top: 8px;
+    }
   }
 }
 
-.elc-product-images {
+.elc-product-rating {
   margin-top: 13px;
   display: flex;
   align-items: center;
   gap: 5px;
+
   & :first-child {
     width: 115px;
+  }
+  @include desktop-up {
+    & :first-child {
+      width: 120px;
+    }
   }
 }
 
@@ -59,6 +106,24 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
+  }
+
+  @include desktop-up {
+    display: grid;
+    grid-template-columns: auto auto;
+    height: auto;
+    gap: 30px;
+    &__title {
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+    }
+    &__desc {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 24px;
+    }
   }
 }
 .elc-product-shade {
@@ -82,6 +147,11 @@
     height: 16px;
     width: 16px;
   }
+  @include desktop-up {
+    width: 256px;
+    height: 64px;
+    margin-top: 60px;
+  }
 }
 
 .divider {
@@ -89,6 +159,9 @@
   margin-top: 20px;
   &__wide {
     margin-top: 60px;
+  }
+  @include desktop-up {
+    margin-top: 24px;
   }
 }
 
@@ -120,18 +193,42 @@
       width: 25px;
       height: 25px;
     }
+
+    @include desktop-up {
+      &--style {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 24px;
+      }
+      &--arrow {
+        margin-left: 22px;
+        margin-right: 110px;
+      }
+    }
   }
   &-price {
     margin-top: 33px;
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
+    @include desktop-up {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+  @include desktop-up {
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 
 .elc-product-container {
   margin-top: 19px;
-  height: 340px;
+
   & :last-child {
     .elc-product-image-container {
       display: flex;
@@ -140,6 +237,26 @@
     .elc-product-image {
       height: 236px;
       width: 50px;
+    }
+  }
+
+  @include desktop-up {
+    grid-area: img;
+    display: flex;
+    gap: 24px;
+
+    .elc-prodcut-info {
+      height: 72px;
+    }
+
+    .elc-product-image-container {
+      width: 276px;
+      height: 344px;
+      padding: 83px 56px;
+    }
+    .elc-product-image {
+      height: 178px;
+      width: 164px;
     }
   }
 }
@@ -151,6 +268,10 @@
   font-weight: 400;
   padding-right: 100px;
   margin-top: 20px;
+  @include desktop-up {
+    padding: 0;
+    margin-top: 21px;
+  }
 }
 .elc-product-price {
   color: $color-grey;
@@ -160,13 +281,23 @@
   font-weight: 400;
 }
 .elc-product-image-container {
-  padding: 88px 83px;
+  padding: 66px 88px;
   background-color: #fafafa;
   margin-top: 32px;
+
+  @include desktop-up {
+    grid-area: img;
+    width: 539px;
+    height: 674px;
+  }
 }
 .elc-product-image {
   width: 164px;
   height: 178px;
+  @include desktop-up {
+    width: auto;
+    height: auto;
+  }
 }
 
 .btn--dark {
@@ -180,6 +311,12 @@
   background-color: $color-black;
   border: none;
   cursor: pointer;
+  @include desktop-up {
+    width: 267px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+  }
 }
 .btn--light {
   width: 100%;
@@ -192,4 +329,9 @@
   background-color: white;
   border: 2px solid #e6e6e6;
   cursor: pointer;
+  margin-bottom: 30px;
+
+  @include desktop-up {
+    margin-top: 42px;
+  }
 }
