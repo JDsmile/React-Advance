@@ -1,0 +1,19 @@
+@import 'variables.scss';
+@import 'reset.scss';
+
+body {
+  color: $color-black;
+  font-family: $elc-font;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,0 +1,40 @@
+$elc-font-path: "../fonts/";
+
+// normal / standard / medium
+// helveticaneueltstd-md
+// HelveticaNeueLTStd65Medium
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('HelveticaNeueLTStd65Medium'),
+       local('Helvetica Neue LT Std 65 Medium'),
+       url(#{$elc-font-path}helveticaneueltstd-md.woff2) format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400 500;
+}
+
+// light
+// helveticaneueltstd-lt
+// HelveticaNeueLTStd45Light
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('HelveticaNeueLTStd45Light'),
+       local('Helvetica Neue LT Std 45 Light'),
+       url(#{$elc-font-path}helveticaneueltstd-lt.woff2) format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+// black
+// helveticaneueltstd-blk
+// HelveticaNeueLTStd95Black
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('HelveticaNeueLTStd95Black'),
+       local('Helvetica Neue LT Std 95 Black'),
+       url(#{$elc-font-path}helveticaneueltstd-blk.woff2) format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
